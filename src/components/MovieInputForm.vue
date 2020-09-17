@@ -125,6 +125,7 @@ export default {
           !alphabets_rule.test(this.form.title_ch);
         this.title_eng_validated =
           title_eng_rule.test(this.form.title_eng) &&
+          !title_ch_rule.test(this.form.title_eng) &&
           !specialCharacters_rule.test(this.form.title_eng);
         this.title_intro_validated = title_intro_rule.test(processedIntroInput);
 
