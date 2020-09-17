@@ -1,5 +1,5 @@
 <h3 align="center"> hw-frontend-migration-vuejs </h3>
-<a href="#">
+<a href="https://legacy-code-to-vue.herokuapp.com/">
   <p align="center">Click here to the demo site</p>
 </a>
 
@@ -38,7 +38,35 @@
 * 將 css 部分抽離 views 頁面，統一放置在 styles 下管理
 
 ### Deliverable 2
-...
+佈署到 Heroku 上
+1. 安裝好 Heroku 的 Cli 
+2. 新增一個 static.json 檔，記錄啟動相關資訊
+```json
+{
+  "root": "dist",
+  "clean_urls": true,
+  "routes": {
+    "/**": "index.html"
+  }
+}
+```
+3. 執行以下指令
+```
+/*PART 1 - 將 /dist 檔從 .gitignore 移除，並加入 git 追蹤*/
+git add dist
+
+/*PART 2 - 將執行檔一同推上 github*/
+git add static.json
+git commit -m "add dist and configuration"
+
+/*PART 3 - 佈署到 Heroku*/
+heroku login // 如果尚未登入的話需要
+heroku create <XXX，請換成自己喜歡的專案名稱>
+heroku buildpacks:add heroku/nodejs
+heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static
+git push heroku master
+```
+[Demo Site](https://legacy-code-to-vue.herokuapp.com/)
 
 ## Run the frontend server
 **1. Enter the project folder**
