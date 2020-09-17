@@ -14,7 +14,7 @@
         class="errorMessage"
         :class="title_ch_validated === false ? 'errorMessage--show' : ''"
       >
-        只接受中文字，並請檢查輸入長度，
+        只接受中文字，並請檢查輸入長度
       </small>
     </div>
     <div class="form-group">
